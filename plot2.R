@@ -1,5 +1,6 @@
 # PLOT 2
 # =========
+
 #download data
 setwd("~/Desktop/Coursera/Data Scientist Certification Classes/4.Exploratory Data Analysis/EDA/Project1/")
 URL <- "https://d396qusza40orc.cloudfront.net/exdata%2Fdata%2Fhousehold_power_consumption.zip"

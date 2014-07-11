@@ -1,7 +1,8 @@
 # PLOT 3
 # =========
+
 #download data
-setwd("~/Desktop/Coursera/Data Scientist Certification Classes/4.Exploratory Data Analysis/EDA/")
+setwd("~/Desktop/Coursera/Data Scientist Certification Classes/4.Exploratory Data Analysis/EDA/Project1/")
 URL <- "https://d396qusza40orc.cloudfront.net/exdata%2Fdata%2Fhousehold_power_consumption.zip"
 download.file(URL, "exdata-data-household_power_consumption.zip", method = "curl")
 
@@ -19,6 +20,8 @@ Date_Time <- strptime(paste(pr1_data$Date, pr1_data$Time, sep = " "), format = "
 pr1_data <- cbind(Date_Time, pr1_data[,-c(1:2)])
 
 #plot the data
+graphics.off()
+dev.new()
 png("plot3.png", width = 680, height = 480, units = "px", pointsize = 12, bg = "white")
 dev.set(which = 2)
 plot(pr1_data$Date_Time,  as.numeric(pr1_data$Sub_metering_1),

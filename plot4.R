@@ -1,7 +1,8 @@
 # PLOT 4
 # =========
+
 #download data
-setwd("~/Desktop/Coursera/Data Scientist Certification Classes/4.Exploratory Data Analysis/EDA/")
+setwd("~/Desktop/Coursera/Data Scientist Certification Classes/4.Exploratory Data Analysis/EDA/Project1/")
 URL <- "https://d396qusza40orc.cloudfront.net/exdata%2Fdata%2Fhousehold_power_consumption.zip"
 download.file(URL, "exdata-data-household_power_consumption.zip", method = "curl")
 
@@ -22,9 +23,9 @@ pr1_data <- cbind(Date_Time, pr1_data[,-c(1:2)])
 graphics.off() 
 dev.new()
 png("plot4.png", res = 55,  width = 680, height = 480, units = "px", pointsize = 12, bg = "white")
-dev.set(which = 2)
+#dev.set(which = 2)
 par(mfrow = c(2,2))
-
+#par(mfcol = c(2, 2), mar = c(4, 4, 4, 2), oma = c(1, 1, 0, 0))
 plot(pr1_data$Date_Time,  as.numeric(pr1_data$Global_active_power), 
      type = "l",
      ylab = "Global Active Power",
@@ -49,19 +50,13 @@ lines(pr1_data$Date_Time, as.numeric(pr1_data$Sub_metering_2), type = "l", col =
 lines(pr1_data$Date_Time, as.numeric(pr1_data$Sub_metering_3), type = "l", col = "blue")
 
 # add legend
-legend(x = "topright", #y = c(50, 28, 25), 
+legend(x = "topright",
        bty = "n",
        y.intersp = 0.7,
-       xjust = 0.1,
-       inset = 0, 
-       yjust =.1,
-       
        c("Sub_metering_1", "Sub_metering_2", "Sub_metering_3"), 
        lty=c(1, 1, 1), 
        lwd=c(2.5, 2.5, 2.5),
-       col=c("black", "red", "blue"),
-       pt.cex=1,
-       cex=0.8
+       col=c("black", "red", "blue")
 )
 
 plot(pr1_data$Date_Time,  as.numeric(pr1_data$Global_reactive_power),
@@ -71,7 +66,7 @@ plot(pr1_data$Date_Time,  as.numeric(pr1_data$Global_reactive_power),
 )
 
 
-dev.copy(which = 4)
+#dev.copy(which = 4)
 dev.off()
 dev.cur()
 
